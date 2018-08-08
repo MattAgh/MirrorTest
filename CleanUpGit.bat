@@ -1,20 +1,15 @@
 @echo off
 for /F %%b in ('git branch') do (
 echo Processing %%b
-pause
 echo Started cleaning the changes.
-git reset --hard origin/%%b
+git clean -fd
 echo Finished cleaning the changes.
-pause
-echo packages >> .gitignore
+echo packages2 >> .gitignore
 git add .gitignore
-pause
 git commit -m "added ignorable files/directories"
-pause
+git push
 git rm -r --cached .
-pause
 git add .
-pause
 git commit -am "Removed the ignored files"
 git push
 )
