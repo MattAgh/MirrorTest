@@ -1,12 +1,12 @@
 @echo off
 for %%b in ('git branch') do (
-echo Processing %branch%
+echo Processing %b%
 
 echo Started cleaning the changes.
-git reset --hard origin/%branch%
+git reset --hard origin/%b%
 echo Finished cleaning the changes.
 
-echo "packages" >> .gitignore
+echo packages >> .gitignore
 git add .gitignore
 git commit -m "added ignorable files/directories"
 
